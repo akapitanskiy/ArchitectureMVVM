@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
+
     private List<Note> notes = new ArrayList<>();
 
     @NonNull
