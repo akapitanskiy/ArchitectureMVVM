@@ -22,32 +22,50 @@ public abstract class NoteDatabase extends RoomDatabase {
                             NoteDatabase.class,
                             "note_database")
                     .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
+                    .addCallback(initDbRoomCallback)
                     .build();
         }
         return instance;
     }
 
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
+    private static RoomDatabase.Callback initDbRoomCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            new PopulateDbAsyncTask(instance).execute();
+            new InitPopulateDbAsyncTask(instance).execute();
+        }
+
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+            new InsertExampleIfEmptyAsyncTask(instance).execute();
         }
     };
 
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class InitPopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
         private NoteDao noteDao;
-
-        private PopulateDbAsyncTask(NoteDatabase db) {
+        private InitPopulateDbAsyncTask(NoteDatabase db) {
             noteDao = db.noteDao();
         }
-
         @Override
         protected Void doInBackground(Void... voids) {
             noteDao.insert(new Note("Title 1", "Description 1", 1));
             noteDao.insert(new Note("Title 2", "Description 2", 2));
             noteDao.insert(new Note("Title 3", "Description 3", 3));
+            return null;
+        }
+    }
+
+    private static class InsertExampleIfEmptyAsyncTask extends AsyncTask<Void, Void, Void> {
+        private NoteDao noteDao;
+        private InsertExampleIfEmptyAsyncTask(NoteDatabase db) {
+            noteDao = db.noteDao();
+        }
+        @Override
+        protected Void doInBackground(Void... voids) {
+            if(noteDao.getQty() == 0) {
+                noteDao.insert(new Note("Example title", "Your not new db was empty, so we added example", 7));
+            }
             return null;
         }
     }

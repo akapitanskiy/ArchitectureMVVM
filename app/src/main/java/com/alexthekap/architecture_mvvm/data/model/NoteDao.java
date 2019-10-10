@@ -7,8 +7,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.alexthekap.architecture_mvvm.data.model.Note;
-
 import java.util.List;
 
 @Dao // Data Access Object
@@ -28,4 +26,7 @@ public interface NoteDao {
 
     @Query("SELECT * FROM note_table ORDER BY priority DESC")
     LiveData<List<Note>> getAllNotes();
+
+    @Query("SELECT COUNT('id') FROM note_table")
+    int getQty();
 }
