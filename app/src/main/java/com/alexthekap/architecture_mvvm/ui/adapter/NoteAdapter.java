@@ -1,4 +1,4 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.alexthekap.architecture_mvvm.R;
+import com.alexthekap.architecture_mvvm.data.model.Note;
 
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
 

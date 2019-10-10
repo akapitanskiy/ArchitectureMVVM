@@ -1,4 +1,4 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
+
+import com.alexthekap.architecture_mvvm.R;
 
 public class AddEditNoteActivity extends AppCompatActivity {
     public static final String EXTRA_ID = "com.alexthekap.architecture_mvvm.EXTRA_ID";

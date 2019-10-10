@@ -1,4 +1,4 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.data.model;
 
 import android.content.Context;
 import android.os.AsyncTask;

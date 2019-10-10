@@ -1,10 +1,13 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.ui;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import com.alexthekap.architecture_mvvm.data.model.Note;
+import com.alexthekap.architecture_mvvm.data.repository.NoteRepository;
 
 import java.util.List;
 

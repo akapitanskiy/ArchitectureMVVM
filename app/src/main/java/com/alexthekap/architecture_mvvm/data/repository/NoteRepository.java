@@ -1,9 +1,13 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.data.repository;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+
+import com.alexthekap.architecture_mvvm.data.model.Note;
+import com.alexthekap.architecture_mvvm.data.model.NoteDao;
+import com.alexthekap.architecture_mvvm.data.model.NoteDatabase;
 
 import java.util.List;
 

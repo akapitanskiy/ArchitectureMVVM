@@ -1,4 +1,4 @@
-package com.alexthekap.architecture_mvvm;
+package com.alexthekap.architecture_mvvm.ui.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.alexthekap.architecture_mvvm.ui.adapter.NoteAdapter;
+import com.alexthekap.architecture_mvvm.R;
+import com.alexthekap.architecture_mvvm.data.model.Note;
+import com.alexthekap.architecture_mvvm.ui.NoteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
